@@ -1,0 +1,93 @@
+{% extends "common/layout_main.html" %}
+{% block content %}
+<div class="row  border-bottom">
+    <div class="col-lg-12">
+        <div class="tab_title">
+            <ul class="nav nav-pills">
+                <li class="current">
+                    <a href="{{ buildUrl('/food/index') }}">美食列表</a>
+                </li>
+                <li>
+                    <a href="{{ buildUrl('/food/cat') }}">分类列表</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .wrap_info img {
+        width: 70%;
+    }
+</style>
+<div class="row m-t wrap_info">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="m-b-md">
+                    <h2>美食信息</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 text-center">
+                <img class="img-circle circle-border" src="{{ info.image }}"
+                     width="100px" height="100px">
+            </div>
+            <div class="col-lg-10">
+                <p class="m-t">美食名：{{ info.name }}</p>
+                <p>售价：{{ info.price }}</p>
+                <p>分类：{{ cat_mapping[info.cat_id ].name }}</p>
+                <p>商家：{{ member_mapping[info.member_id].nickname }}</p>
+                <p>描述：{{ info.summary }}</p>
+                <p>销量：{{ info.total_count }}</p>
+                <p>评论：{{ info.comment }}</p>
+            </div>
+        </div>
+
+        <div class="row m-t">
+            <div class="col-lg-12">
+                <div class="panel blank-panel">
+                    <div class="panel-heading">
+                        <div class="panel-options">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#tab-1" data-toggle="tab" aria-expanded="false">销售历史</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab-1">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>用户名称</th>
+                                        <th>购买价格</th>
+                                        <th>购买数量</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% if order_item_list %}
+                                        {% for item in order_item_list %}
+                                        <td>{{ member_mapping[item.member_id].nickname }}</td>
+                                        <td>{{ item.price }}</td>
+                                        <td>{{ item.quantity }}</td>
+                                        {% endfor %}
+                                    {% else %}
+                                    <tr>
+                                        <td colspan="3">暂无销售记录</td>
+                                    </tr>
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends "common/layout_main.html" %}
+{% block content %}
+{% include "common/table_member.html" %}
+<div class="row m-t">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="m-b-md">
+                    <h2>用户信息</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 text-center">
+                <img class="img-circle circle-border" src="{{ info.avatar }}"
+                     width="100px" height="100px">
+            </div>
+            <div class="col-lg-10">
+                <p class="m-t">姓名 ：{{ info.nickname }}</p>
+                <p>性别 ：{{ info.sex_desc }}</p>
+                <p>手机号：{{ info.mobile }}</p>
+                <p>类型 ：{{ info.purview_desc }}</p>
+                {% if info.purview == 1 %}
+                <p>地址 ：{{ address_info.school_str }}{{ address_info.grade_str }}{{ address_info.class_str }}</p>
+                {% else %}
+                {% endif %}
+            </div>
+        </div>
+        {% if info.purview==1 %}
+        <div class="row m-t">
+            <div class="col-lg-12">
+                <div class="panel blank-panel">
+                    <div class="panel-heading">
+                        <div class="panel-options">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#tab-1" data-toggle="tab" aria-expanded="false">用户订单</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab-1">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>订单编号</th>
+                                        <th>支付金额</th>
+                                        <th>订单状态</th>
+                                        <th>支付时间</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                     {%  if pay_order_list %}
+                                        {% for item in pay_order_list %}
+                                    <tr>
+                                       <td>{{ item.order_sn }}</td>
+                                       <td>{{ item.pay_price }}</td>
+                                       <td>{{ item.status_desc }}</td>
+                                        <td>{{ item.pay_time }}</td>
+                                    </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                         <td colspan="4">暂无订单</td>
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="row m-t">
+            <div class="col-lg-12">
+                <div class="panel blank-panel">
+                    <div class="panel-heading">
+                        <div class="panel-options">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#tab-1" data-toggle="tab" aria-expanded="false">商家美食</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab-1">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>美食名</th>
+                                        <th>图片</th>
+                                        <th>价格</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                     {%  if food_list %}
+                                        {% for item in food_list %}
+                                    <tr>
+                                       <td>{{ item.name }}</td>
+                                       <td>{{ item.image }}</td>
+                                       <td>{{ item.price }}</td>
+                                    </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                         <td colspan="3">暂无订单</td>
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

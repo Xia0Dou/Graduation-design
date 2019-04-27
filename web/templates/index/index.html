@@ -1,0 +1,50 @@
+{% extends "common/layout_main.html" %}
+{% block content %}
+<div class="wrapper wrapper-content">
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <span class="label label-primary pull-right">统计</span>
+                            <h5>营收概况</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <h1 class="no-margins">{{ price.pay_price }}</h1>
+                            <small>菜品费用：{{ price.total_price }}</small>
+                            <small>--</small>
+                            <small>运费：{{ price.yun_price }}</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <span class="label label-primary pull-right">统计</span>
+                            <h5>用户数量</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <h1 class="no-margins">{{ member_count.count }}</h1>
+                            <small>顾客：{{ member_count.account }}</small>
+                            <small>--</small>
+                            <small>商家：{{ member_count.merchants }}</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <span class="label label-primary pull-right">统计</span>
+                            <h5>订单数量</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <h1 class="no-margins">{{ pay_count }}</h1>
+                            <small></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+{% endblock %}

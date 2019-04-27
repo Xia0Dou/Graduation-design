@@ -1,0 +1,109 @@
+{% extends "common/layout_main.html" %}
+{% block content %}
+<div class="row  border-bottom">
+    <div class="col-lg-12">
+        <div class="tab_title">
+            <ul class="nav nav-pills">
+                <li class="current">
+                    <a href="{{ buildUrl('/food/index') }}">美食列表</a>
+                </li>
+                <li>
+                    <a href="{{ buildUrl('/food/cat') }}">分类列表</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <form class="form-inline wrap_search">
+            <div class="row  m-t p-w-m">
+                <div class="form-group">
+                    <select name="status" class="form-control inline">
+                        <option value="-1">请选择状态</option>
+                        {% for tmp in status_mapping %}
+                        <option value="{{ tmp }}" {% if tmp == search_con['status']  %} selected {% endif %}>{{  status_mapping[ tmp ] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="cat_id" class="form-control inline">
+                        <option value="-1">请选择分类</option>
+                        {% for tmp in cat_mapping %}
+                            {% if cat_mapping[tmp].status == 1 %}
+                            <option value="{{ tmp }}" {% if tmp|string == search_con['cat_id']  %} selected {% endif %} >{{ cat_mapping[tmp].name  }}</option>
+                            {% endif %}}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="member_id" class="form-control inline">
+                        <option value="-1">请选择商家</option>
+                        {% for tmp in member_mapping %}
+                            {% if member_mapping[tmp].purview == 0 and member_mapping[tmp].status == 1%}
+                                <option value="{{ tmp }}" {% if tmp|string == search_con['member_id']  %} selected {% endif %} >{{ member_mapping[tmp].nickname  }}</option>
+                            {% endif %}}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" name="mix_kw" placeholder="请输入美食名" class="form-control" value="{{ search_con['mix_kw'] }}">
+
+                        <span class="input-group-btn">
+                            <button type="button" class="btn  btn-primary search">
+                                <i class="fa fa-search"></i>搜索
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </form>
+        <table class="table table-bordered m-t">
+            <thead>
+            <tr>
+                <th>美食名</th>
+                <th>分类</th>
+                <th>价格</th>
+                <th>所属商家</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+             {% if list %}
+                {% for item in list %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ cat_mapping[item.cat_id].name }}</td>
+                 <td>{{ item.price }}</td>
+                <td>{{ member_mapping[item.member_id].nickname }}</td>
+
+                <td>
+                    <a href="{{ buildUrl('/food/info') }}?id={{ item.id  }}">
+                        <i class="fa fa-eye fa-lg"></i>
+                    </a>
+                     {%  if item.status == 1 %}
+                    <a class="m-l remove" href="javascript:void(0);" data="{{ item.id  }}">
+                        <i class="fa fa-trash fa-lg"></i>
+                    </a>
+                    {% else %}
+                       <a class="m-l recover" href="javascript:void(0);" data="{{ item.id  }}">
+                        <i class="fa fa-rotate-left fa-lg"></i>
+                    </a>
+                    {% endif %}
+                </td>
+            </tr>
+             {% endfor %}
+            {% else %}
+                <tr><td colspan="5">暂无数据~~</td></tr>
+            {% endif %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{{ buildStaticUrl('/js/food/index.js') }}"></script>
+{% endblock %}
