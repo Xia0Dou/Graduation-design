@@ -2,3 +2,5 @@ flask
 flask-sqlalchemy
 mysqlclient
 flask-script
+requests
+uwsgi
