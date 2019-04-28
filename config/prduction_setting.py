@@ -6,7 +6,7 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 SQLALCHEMY_ENCODING = "utf8mb4"
 
 APP = {
-    'domain': 'https://foodpy.xyz'
+    'domain': 'https://www.foodpy.xyz'
 }
 
 RELEASE_VERSION="20190427001"
