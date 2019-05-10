@@ -65,13 +65,18 @@ def info():
     if order_item_map:
         order_item_list = order_item_map[id]
 
+    count = 0
+    for item in order_item_list:
+        count += item.quantity
+    info.total_count = count
+
     cat_mapping = getDict(FoodCat, 'id', 'id', [])
     member_mapping = getDict(Member, 'id', 'id', [])
     resp_data['cat_mapping'] = cat_mapping
     resp_data['member_mapping'] = member_mapping
-
     resp_data['info'] = info
     resp_data['order_item_list'] = order_item_list
+
     return ops_render( "food/info.html" ,resp_data)
 
 

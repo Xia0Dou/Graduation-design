@@ -1,0 +1,40 @@
+<view class="container">
+    <form bindsubmit="bindSave">
+    <view class="form-box">
+        <view class="row-wrap">
+            <view class="label">美食名</view>
+            <view class="label-right">
+                <input name="name" class="input" type="text" placeholder="名字" value="{{ info.name }}"/>
+            </view>
+        </view>
+        <view class="row-wrap" bindtap="selectCity">
+            <view class="label">选择分类</view>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{catList}}">
+                <view class="picker">
+                    {{catList[index]}}
+                </view>
+            </picker>
+        </view>
+        <view class="row-wrap">
+            <view class="label">价格</view>
+            <view class="label-right">
+                <input name="price" class="input" type="number" placeholder="价格" value="{{ info.price }}"/>
+            </view>
+        </view>
+        <view class="row-wrap">
+            <view class="label">图片</view>
+            <view class="label-right">
+                <input name="image" class="input" type="textarea" maxlength='5000' placeholder="输入图片的url地址" value="{{ info.image }}"/>
+            </view>
+        </view>
+        <view class="row-wrap">
+            <view class="label">描述</view>
+            <view class="label-right">
+                <input name="note" class="input" type="text" placeholder="美食描述" value="{{ info.note }}"/>
+            </view>
+        </view>
+    </view>
+    <button type="warn" class="save-btn" formType="submit">保存</button>
+    <button type="default" class="cancel-btn" bindtap="bindCancel">取消</button>
+    </form>
+</view>

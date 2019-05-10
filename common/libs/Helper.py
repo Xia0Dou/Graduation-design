@@ -1,6 +1,7 @@
 from flask import g, render_template
 from common.libs.user.User_info import userInfo
 import datetime
+import time
 
 '''
 统一模板
@@ -23,6 +24,9 @@ def ops_render( template,context = {} ):
 '''
 def currentDate(format="%y-%m-%d %h:%m:%s"):
     return datetime.datetime.now().strftime(format)
+
+def currentDate1(format="%y%m%d%h%m%s"):
+    return time.strftime('%Y%m%d%H%M%S',time.localtime(time.time()))
 
 
 '''
@@ -72,3 +76,15 @@ def getDictList( db,select,key,id ):
 
         ret[ getattr( item,key ) ].append(item )
     return ret
+
+
+def getfilter(list,id):
+    ids = []
+    for item in list:
+        if not hasattr(item, id):
+            break
+        if getattr(item, id) in ids:
+            continue
+        ids.append(getattr(item, id))
+
+    return ids

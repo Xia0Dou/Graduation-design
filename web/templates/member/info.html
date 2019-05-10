@@ -5,6 +5,12 @@
     <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-12">
+				{% if info.purview == 2 %}
+                    <a class="btn btn-w-m btn-outline btn-primary pull-right express_send"
+                       href="javascript:void(0);" data="{{ info.id }}">
+						审核通过
+                    </a>
+				{% endif %}
                 <div class="m-b-md">
                     <h2>用户信息</h2>
                 </div>
@@ -21,7 +27,7 @@
                 <p>手机号：{{ info.mobile }}</p>
                 <p>类型 ：{{ info.purview_desc }}</p>
                 {% if info.purview == 1 %}
-                <p>地址 ：{{ address_info.school_str }}{{ address_info.grade_str }}{{ address_info.class_str }}</p>
+                <p>地址 ：{{ address_info.address }}</p>
                 {% else %}
                 {% endif %}
             </div>
@@ -104,7 +110,8 @@
                                         {% for item in food_list %}
                                     <tr>
                                        <td>{{ item.name }}</td>
-                                       <td>{{ item.image }}</td>
+                                        <td><img src="{{ item.image }}"
+                                                width="50px" height="50px"></td>
                                        <td>{{ item.price }}</td>
                                     </tr>
                                         {% endfor %}
@@ -123,4 +130,7 @@
         {% endif %}
     </div>
 </div>
+{% endblock %}
+{% block js %}
+<script src="{{ buildStaticUrl('/js/member/info.js') }}"></script>
 {% endblock %}

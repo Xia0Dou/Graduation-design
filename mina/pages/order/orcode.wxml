@@ -1,0 +1,9 @@
+<view>
+<view class='imagesize'>
+  <image src="{{orcode}}" class='in-image'   >
+  </image>
+  </view>
+  <view class='imagesize'>
+  <text>请扫描或长按识别二维码付款！</text>
+  </view>
+</view>

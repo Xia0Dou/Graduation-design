@@ -13,10 +13,10 @@ class Member(db.Model):
     mobile = db.Column(db.String(20), nullable=False, server_default=db.FetchedValue())
     sex = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue())
     avatar = db.Column(db.String(64), nullable=False, server_default=db.FetchedValue())
-    reg_ip = db.Column(db.String(64), nullable=False, server_default=db.FetchedValue())
     status = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue())
     purview = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue())
     orcode = db.Column(db.String(64), nullable=False, server_default=db.FetchedValue())
+    openid = db.Column(db.String(64), nullable=False, server_default=db.FetchedValue())
 
     @property
     def sex_desc(self):
@@ -31,7 +31,8 @@ class Member(db.Model):
     def purview_desc(self):
         sex_map = {
             "0": "商家",
-            "1": "顾客"
+            "1": "顾客",
+            "2": "审核中",
         }
         return sex_map[str(self.purview)]
 

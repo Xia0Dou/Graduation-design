@@ -55,22 +55,18 @@ def payInfo():
     if not pay_item_info:
         return redirect(UrlManager.buildUrl("/finance/index"))
 
+    ids = [id]
+    pay_item_map = getDictList(PayOrderItem, PayOrderItem.pay_order_id, "pay_order_id", ids)
+    pay_item_list = []
+    if pay_item_map:
+        pay_item_list = pay_item_map[id]
+
     food_mapping = getDict(Food, Food.id, "id", [])
-    food_info = food_mapping[pay_item_info.food_id]
-
-    merchants_info = Member.query.filter_by(id=food_info.member_id).first()
-
-    order_list = []
-    order_list.append({
-        "name": food_info.name,
-        "quantity": pay_item_info.quantity,
-        "total_price":pay_info.total_price
-    })
 
     resp_data['pay_info'] = pay_info
+    resp_data['pay_item_list'] = pay_item_list
+    resp_data['food_mapping'] = food_mapping
     resp_data['member_info'] = member_info
-    resp_data['order_list'] = order_list
-    resp_data['merchants_info'] = merchants_info
     resp_data['address_info'] = address_info
     resp_data['current'] = 'index'
     return ops_render( "finance/pay_info.html",resp_data)
@@ -85,7 +81,7 @@ def account():
     pay_list = query.order_by(PayOrder.id.asc()).all()
     price = 0
     for item in pay_list:
-        price += item.pay_price
+        price += item.total_price
 
     resp_data['price'] = price
     resp_data['info'] = pay_list
@@ -140,7 +136,7 @@ def dataList(pay_list):
                     "nickname": member_info.nickname,
                     "status_desc": item.status_desc,
                     "order_number": item.order_sn,
-                    "price": item.pay_price
+                    "price": item.total_price
                 }
 
                 food_tmp = []

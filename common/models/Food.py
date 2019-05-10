@@ -16,7 +16,6 @@ class Food(db.Model):
     summary = db.Column(db.String(10000), nullable=False, server_default=db.FetchedValue())
     status = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue())
     total_count = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue())
-    comment = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue())
 
     @property
     def status_desc(self):

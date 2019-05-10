@@ -38,7 +38,7 @@ def index():
         total_price += float(item.total_price)
     price['pay_price'] = pay_price
     price['total_price'] = total_price
-    price['yun_price'] = pay_price - total_price
+    price['yun_price'] = total_price - pay_price
 
     resp_data['price'] = price
     resp_data['pay_count'] = len(pay_list)

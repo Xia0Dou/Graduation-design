@@ -1,0 +1,19 @@
+<view class="container">
+	<view class="userinfo">
+		<image wx:if="{{user_info && user_info.avatar_url}}" class="userinfo-avatar" src="{{ user_info.avatar_url }}" background-size="cover"></image>
+		<text class="userinfo-nickname">{{ user_info.nickname }}({{ user_info.purview_desc }})</text>
+	</view>
+  <view style="height:20rpx;background: #eee;width:100%;"></view>
+  <view class="my-item">
+    <navigator url="/pages/my/order_list" hover-class="navigator-hover">我的订单</navigator>
+  </view>
+  <view class="my-item">
+    <navigator url="/pages/my/addressList" hover-class="navigator-hover">我的收货地址</navigator>
+  </view>
+  <view class="my-item">
+    <navigator bindtap="changePer" hover-class="navigator-hover" wx:if="{{ user_info.purview == 1 }}">成为商家</navigator>
+    <navigator bindtap="changePer" hover-class="navigator-hover" wx:if="{{ user_info.purview == 2 }}">成为商家</navigator>
+    <navigator bindtap="changePer" hover-class="navigator-hover" wx:if="{{ user_info.purview == 0 }}">成为顾客</navigator>
+  </view>
+
+</view>

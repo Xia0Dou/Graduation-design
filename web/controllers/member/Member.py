@@ -118,3 +118,22 @@ def ops():
     db.session.add(member_info)
     db.session.commit()
     return jsonify(prompt)
+
+
+@route_member.route('/ok',methods=["POST"])
+def ok():
+    prompt = {'code': 200, 'msg': '审核通过', 'data': {}}
+    req = request.values
+
+    id = req['id'] if 'id' in req else ''
+
+    member_info = Member.query.filter_by(id=id).first()
+
+    member_info.purview = 0
+
+    db.session.add(member_info)
+    db.session.commit()
+    return jsonify(prompt)
+
+
+

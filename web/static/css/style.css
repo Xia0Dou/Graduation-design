@@ -45,12 +45,12 @@ h5 {
   color: #999c9e;
 }
 .nav > li.active > a {
-  color: #ffffff;
+  color: #FFEBCD;
 }
 .navbar-default .nav > li > a:hover,
 .navbar-default .nav > li > a:focus {
-  background-color: #293846;
-  color: white;
+  background-color: #20B2AA;/*#293846;*/
+  color: whitesmoke;
 }
 .nav .open > a,
 .nav .open > a:hover,
@@ -59,7 +59,7 @@ h5 {
 }
 .nav.navbar-top-links > li > a:hover,
 .nav.navbar-top-links > li > a:focus {
-  background-color: transparent;
+  background-color: whitesmoke;
 }
 .nav > li > a i {
   margin-right: 6px;
@@ -161,7 +161,7 @@ h5 {
   padding: 33px 25px;
 }
 .pace-done .nav-header {
-  transition: all 0.4s;
+  transition: all 0.1s;
 }
 .nav > li.active {
   border-left: 4px solid #19aa8d;
@@ -261,12 +261,12 @@ body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
   position: absolute;
   left: 70px;
   top: 0;
-  background-color: #2f4050;
+  background-color: #203a4d;
   padding: 10px 10px 10px 10px;
   font-size: 12px;
 }
 .canvas-menu.mini-navbar .nav-second-level {
-  background: #293846;
+  background: #223140;
 }
 .mini-navbar li.active .nav-second-level {
   left: 65px;

@@ -13,5 +13,4 @@ class PayOrderItem(db.Model):
     quantity = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue())
     price = db.Column(db.Numeric(10, 2), nullable=False, server_default=db.FetchedValue())
     food_id = db.Column(db.Integer, nullable=False, index=True, server_default=db.FetchedValue())
-    note = db.Column(db.Text, nullable=False)
     status = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue())

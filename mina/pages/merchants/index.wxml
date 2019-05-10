@@ -1,0 +1,38 @@
+<view class="container">
+    <view class="title-box" wx:if="{{ purview != 0 }}">
+        顾客没有商家管理的权限!
+    </view>
+    <view class="to-index-btn" bindtap="changePur" wx:if="{{ purview != 0 }}">
+        成为商家
+    </view>
+
+
+    <view class="list-top" >
+        <view class="label">美食列表</view>
+    </view>
+
+    <view class="order-list" wx:if="{{ purview==0 && list.length }}">
+        <view class="a-order" wx:for="{{list}}" wx:key="{{index}}" wx:for-item="item" >
+
+            <scroll-view class="goods-img-container" >
+                    <view class="img-box" >
+                        <image src="{{item.pic_url}}" class="goods-img"></image>
+                    </view>
+            </scroll-view>
+            <view class="price-box">
+                <view class="total-price">价格：¥ {{item.price}}</view>
+                <view class="btn topay-btn" bindtap="toSet" data-id="{{ item.id }}">编辑</view>
+                <view class="btn cancel-btn" bindtap="toDelete" data-id="{{ item.id }}">删除</view>
+
+            </view>
+        </view>
+
+    </view>
+
+    <view class="jiesuan-box" wx:if="{{ purview==0 }}">
+        <view class="popup-join-btn" bindtap="toOrder">订单管理</view>
+        <view class="to-pay-btn " bindtap="toCreate">添加美食</view>
+
+    </view>
+    <view  class="no-more-goods">到底了！</view>
+</view>

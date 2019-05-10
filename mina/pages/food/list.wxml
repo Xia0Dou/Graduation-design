@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+<view class="container">
+
+  <!--分类展示
+  <view class="type-container">
+    <scroll-view class="type-navbar" scroll-x="true">
+      <view class="type-box" wx:for-items="{{categories}}" wx:key="id">
+        <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="catClick">
+          {{item.name}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>-->
+
+  <view class="goods-container">
+    <view class="goods-box" wx:for-items="{{goods}}" >
+      <view class="img-box">
+        <image bindtap="toDetailsTap" data-id="{{item.id}}" src="{{item.pic_url}}" class="image" mode="aspectFill" lazy-load="true" />
+      </view>
+      <view class="goods-title">{{item.name}}</view>
+      <view style='display:flex;'>
+        <view class="goods-price">￥ {{item.min_price}}</view>
+        <view wx:if="{{item.price && item.price > 0 && item.min_price != item.price}}" class="goods-price" style='color:#aaa;text-decoration:line-through'>￥ {{item.price}}</view>
+      </view>
+    </view>
+  </view>
+  <view  class="no-more-goods">到底了！</view>
+</view>

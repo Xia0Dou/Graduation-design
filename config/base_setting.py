@@ -1,11 +1,17 @@
-SERVER_PORT = 7777
+SERVER_PORT = 8999
 DEBUG = False
 SQLALCHEMY_ECHO = False
 AUTH_COOKIE_NAME = "hao_food"
 
+# 小程序ID和秘钥
+MINA = {
+    "appid": "wxfd8a4978f735aea0",
+    "appkey": "474c7b41c869a47d12f380a5b8be9167"
+}
 # 过滤url  不需要验证
 IGNORE_URLS = [
-    "^/user/login"
+    "^/user/login",
+    "^/api"
 ]
 
 IGNORE_CHECK_LOGIN_URLS = [
@@ -20,21 +26,17 @@ STATUS_MAPPING = {
 
 PURVIEW_MAPPING = {
     "1":"顾客",
-    "0":"商家"
+    "0":"商家",
+    "2":"审核中"
 }
 
 PAY_STATUS_MAPPING = {
-    "1": "已支付",
+    "0": "已完成",
+    "1": "待评价",
     "2": "待支付",
-    "0": "已完成"
+    "3": "待确认",
+    "4": "已取消",
 }
 
-PAY_STATUS_DISPLAY_MAPPING = {
-    "0": "订单完成",
-    "1": "已支付",
-    "2": "待支付",
-    "3": "待发货",
-    "4": "待确认",
-    "5": "待评价"
-}
+
 

@@ -18,12 +18,12 @@ class PayOrder(db.Model):
     pay_price = db.Column(db.Numeric(10, 2), nullable=False, server_default=db.FetchedValue())
     note = db.Column(db.Text, nullable=False)
     status = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue())
-    express_status = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue())
     express_address_id = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue())
-    express_info = db.Column(db.String(1000), nullable=False, server_default=db.FetchedValue())
-    comment_status = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue())
     pay_time = db.Column(db.DateTime, nullable=False, server_default=db.FetchedValue())
+    comment_score = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue())
+    comment_content = db.Column(db.String(80), nullable=False, server_default=db.FetchedValue())
 
     @property
     def status_desc(self):
-        return app.config['PAY_STATUS_DISPLAY_MAPPING'][str(self.status)]
+        return app.config['PAY_STATUS_MAPPING'][str(self.status)]
+

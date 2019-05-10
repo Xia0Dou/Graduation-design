@@ -35,12 +35,13 @@
 				<p class="m-t">订单编号：{{ pay_info.order_sn }}</p>
 				<p>用户姓名：{{ member_info.nickname }}</p>
 				<p>联系方式：{{ member_info.mobile }}</p>
-				<p>菜品价格：{{ pay_info.total_price }}</p>
+				<p>菜品价格：{{ pay_info.pay_price }}</p>
 				<p>运送费用：{{ pay_info.yun_price }}</p>
-				<p>订单总价：{{ pay_info.pay_price }}</p>
+				<p>订单总价：{{ pay_info.total_price }}</p>
 				<p>订单状态：{{ pay_info.status_desc }}</p>
-				<p>商家：{{ merchants_info.nickname }}</p>
-                <p>收货地址：{{ address_info.school_str }}{{ address_info.grade_str }}{{ address_info.class_str }}</p>
+                <p>收货地址：{{ address_info.address }}</p>
+				<p>评分：{{ pay_info.comment_score }}</p>
+				<p>评价内容：{{ pay_info.comment_content }}</p>
 				<p>备注：{{ pay_info.note }}</p>
 			</div>
 		</div>
@@ -68,13 +69,13 @@
 										<th>金额</th>
 									</tr>
 									</thead>
-									{% if order_list %}
-										{% for item in order_list %}
+									{% if pay_item_list %}
+										{% for item in pay_item_list %}
 									<tbody>
 																			<tr>
-											<td>{{ item.name }}</td>
+											<td>{{ food_mapping[item.food_id].name }}</td>
 											<td>{{ item.quantity }}</td>
-											<td>{{ item.total_price }}</td>
+											<td>{{ item.price }}</td>
 										</tr>
 									</tbody>
 										{% endfor %}
