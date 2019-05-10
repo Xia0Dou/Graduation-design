@@ -6,6 +6,7 @@
       <change afterPath="$PROJECT_DIR$/common/libs/CartSet.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/libs/PayService.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/libs/member/Member.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/models/AllAddress.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/common/models/MemberCart.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mina/.idea/markdown-navigator/profiles_settings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mina/.idea/mina.iml" afterDir="false" />
@@ -48,6 +49,7 @@
       <change afterPath="$PROJECT_DIR$/mina/images/more/loading.gif" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mina/images/more/logo.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mina/images/more/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mina/images/more/mini.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mina/images/more/title.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mina/images/more/wave.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mina/images/nav/cart-off.png" afterDir="false" />
@@ -88,7 +90,18 @@
       <change afterPath="$PROJECT_DIR$/mina/pages/index/index.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mina/pages/index/index.wxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mina/pages/index/index.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mina/pages/merchants/foodSet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mina/pages/merchants/foodSet.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mina/pages/merchants/foodSet.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mina/pages/merchants/foodSet.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mina/pages/merchants/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mina/pages/merchants/index.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mina/pages/merchants/index.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mina/pages/merchants/index.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mina/pages/merchants/merchants_list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mina/pages/merchants/merchants_list.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mina/pages/merchants/merchants_list.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mina/pages/merchants/merchants_list.wxss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mina/pages/my/addressList.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mina/pages/my/addressList.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mina/pages/my/addressList.wxml" afterDir="false" />
@@ -298,7 +311,7 @@
       <change beforePath="$PROJECT_DIR$/common/models/Food.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/models/Food.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/models/Member.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/models/Member.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/models/MemberAddress.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/models/MemberAddress.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/models/PayOrder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/models/PayOrder.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/models/PayOrder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/models/PayOrderItem.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/models/PayOrderItem.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/base_setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/base_setting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/develop_setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/libs/member/__init__.py" afterDir="false" />
@@ -384,11 +397,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mina/pages/index/index.wxml">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mina/pages/index/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="17">
+              <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/controllers/api/Memer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-513">
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -776,12 +803,12 @@
       <workItem from="1557282705688" duration="3419000" />
       <workItem from="1557289922971" duration="27241000" />
       <workItem from="1557407021080" duration="469000" />
-      <workItem from="1557472033228" duration="9636000" />
+      <workItem from="1557472033228" duration="10310000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="380112000" />
+    <option name="totallyTimeSpent" value="380786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="345" y="111" width="1180" height="612" extended-state="0" />
@@ -854,13 +881,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mina/pages/cart/index.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mina/pages/order/index.wxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-57">
@@ -990,16 +1010,6 @@
     <entry file="file://$PROJECT_DIR$/mina/pages/my/select/select.wxml" />
     <entry file="file://$PROJECT_DIR$/mina/pages/my/select/select.js" />
     <entry file="file://$PROJECT_DIR$/mina/pages/my/select/select.json" />
-    <entry file="file://$PROJECT_DIR$/mina/pages/index/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mina/pages/my/addressSet.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -1182,6 +1192,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mina/pages/index/index.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/controllers/api/Order.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -1192,10 +1209,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mina/pages/index/index.wxml">
+    <entry file="file://$PROJECT_DIR$/mina/pages/index/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="17">
+          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/api/Memer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-513">
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

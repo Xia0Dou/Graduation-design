@@ -2,6 +2,11 @@ flask
 flask-sqlalchemy
 mysqlclient
 flask-script
+<<<<<<< HEAD
 pymysql
 request
 uwsgi
+=======
+requests
+uwsgi
+>>>>>>> a8b80135e0009f075476819054135b2dac182c27
